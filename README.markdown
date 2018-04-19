@@ -21,7 +21,7 @@ Use the Swift naming conventions described in the [API Design Guidelines](https:
 ## Where to put code
 
 #### Groups and file names
-
+```code
 |-- models
 |   |-- model1
 |   |   |-- Post.swift
@@ -43,6 +43,7 @@ Use the Swift naming conventions described in the [API Design Guidelines](https:
     `-- commonThing2
         |-- Power.swift
         `-- Fast.swift
+```
 
 
 
