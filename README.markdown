@@ -20,6 +20,32 @@ Use the Swift naming conventions described in the [API Design Guidelines](https:
 
 ## Where to put code
 
+#### Groups and file names
+
+|-- models
+|   |-- model1
+|   |   |-- Post.swift
+|   |   |-- Tag.swift
+|   |   |-- Socnet.swift
+|   |    `-- noarm.swift´
+|-- pages
+|   |-- page1
+|   |   |-- Screen1
+|   |   |   |-- Screen1ViewController.swift
+|   |   |   |-- Screen1Controller.swift
+|   |   |   |-- Screen1TableViewCell.swift
+|   |   |   `-- Screen1OtherSpecificThing.swift
+`-- utils
+    |-- commonThing1
+    |   |-- Art.swift
+    |   |-- Magic.swift
+    |   `-- Good.swift
+    `-- commonThing2
+        |-- Power.swift
+        `-- Fast.swift
+
+
+
 #### Protocols
 
 When adding protocol conformance to a model, prefer adding a separate extension for the protocol methods. This keeps the related methods grouped together with the protocol and can simplify instructions to add a protocol to a class with its associated methods.
@@ -41,11 +67,6 @@ class MyViewController: UIViewController, UITableViewDataSource, UIScrollViewDel
   // all methods
 }
 ```
-#### HTTP requests
-
-#### Logic code(that is link to ui )
-
-
 
 ## What is not needed
 
