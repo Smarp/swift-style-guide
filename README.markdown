@@ -187,14 +187,19 @@ Free functions, which aren't attached to a class or type, should be used sparing
 
 Free functions are most appropriate when they aren't associated with any particular type or instance.
 
-**Preferred**
+```diff
++ Preferred
+```
+
 ```swift
 // easily discoverable
 let sorted = items.mergeSorted()  
 rocket.launch()
 ```
 
-**Not Preferred**
+```diff
+- Not Preferred
+```
 ```swift
 // hard to discover
 let sorted = mergeSort(items)  
@@ -290,7 +295,11 @@ while i < attendeeList.count {
 
 Extend object lifetime using the `[weak self]` and `guard let strongSelf = self else { return }` idiom. `[weak self]` is preferred to `[unowned self]` where it is not immediately obvious that `self` outlives the closure. Explicitly extending lifetime is preferred to optional unwrapping.
 
-**Preferred**
+
+```diff
++ Preferred
+```
+
 ```swift
 resource.request().onComplete { [weak self] response in
   guard let strongSelf = self else {
@@ -301,7 +310,9 @@ resource.request().onComplete { [weak self] response in
 }
 ```
 
-**Not Preferred**
+```diff
+- Not Preferred
+```
 ```swift
 // might crash if self is released before response returns
 resource.request().onComplete { [unowned self] response in
@@ -309,8 +320,9 @@ resource.request().onComplete { [unowned self] response in
   self.updateUI(model)
 }
 ```
-
-**Not Preferred**
+```diff
+- Not Preferred
+```
 ```swift
 // deallocate could happen between updating the model and updating UI
 resource.request().onComplete { [weak self] response in
