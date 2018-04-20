@@ -18,10 +18,20 @@ Descriptive and consistent naming makes software easier to read and understand.
 Use the Swift naming conventions described in the [API Design Guidelines](https://swift.org/documentation/api-design-guidelines/).
 
 
+<details>
+<summary>SwiftLint</summary>
+
+ - type_name
+ - identifier_name
+
+</details>
+
 ## Where to put code
 
 #### Groups and file names
+
 ```code
+
 |-- models
 |   |-- model1
 |   |   |-- Post.swift
@@ -43,9 +53,8 @@ Use the Swift naming conventions described in the [API Design Guidelines](https:
     `-- commonThing2
         |-- Power.swift
         `-- Fast.swift
+
 ```
-
-
 
 #### Protocols
 
@@ -70,7 +79,38 @@ class MyViewController: UIViewController, UITableViewDataSource, UIScrollViewDel
 ```
 
 ## What is not needed
+<details>
+<summary>SwiftLint</summary>
 
+ - control_statement
+ - cyclomatic_complexity
+ - empty_enum_arguments
+ - empty_parameters
+ - file_length
+ - for_where
+ - function_body_length
+ - function_parameter_count
+ - legacy_cggeometry_functions
+ - legacy_constant
+ - legacy_constructor
+ - legacy_nsgeometry_functions
+ - line_length
+ - nesting
+ - redundant_discardable_let
+ - redundant_nil_coalescing
+ - redundant_optional_initialization
+ - redundant_string_enum_value
+ - redundant_void_return
+ - syntactic_sugar
+ - trailing_semicolon
+ - type_body_length
+ - unneeded_parentheses_in_closure_argument
+ - unused_closure_parameter
+ - unused_enumerated
+ - implicit_return
+ - large_tuple
+
+</details>
 
 #### Unused Code
 
@@ -158,6 +198,38 @@ let toView = context.view(forKey: UITransitionContextViewKey.to)
 
 ## What is actually needed
 
+<details>
+<summary>SwiftLint</summary>
+
+ - class_delegate_protocol
+ - fatal_error_message
+ - let_var_whitespace
+ - let_var_whitespace
+ - literal_expression_end_indentation
+ - mark
+ - opening_brace
+ - operator_usage_whitespace
+ - operator_whitespace
+ - overridden_super_call
+ - return_arrow_whitespace
+ - sorted_imports
+ - statement_position
+ - switch_case_alignment
+ - switch_case_on_newline
+ - trailing_whitespace
+ - vertical_parameter_alignment
+ - vertical_parameter_alignment_on_call
+ - vertical_whitespace
+ - weak_delegate
+ - closing_brace
+ - closure_end_indentation
+ - closure_spacing
+ - colon
+ - comma
+ - conditional_returns_on_newline
+ - valid_ibinspectable
+
+</details>
 
 #### Spacing
 
@@ -197,6 +269,16 @@ Guard statements are required to exit in some way. Generally, this should be sim
 
 ## Which one to use?
 
+<details>
+<summary>SwiftLint</summary>
+
+ - multiple_closures_with_trailing_closure
+ - trailing_closure
+ - block_based_kvo
+
+</details>
+
+
 #### Classes vs Structures
 
 Remember, structs have [value semantics](https://developer.apple.com/library/mac/documentation/Swift/Conceptual/Swift_Programming_Language/ClassesAndStructures.html#//apple_ref/doc/uid/TP40014097-CH13-XID_144). Use structs for things that do not have an identity. An array that contains [a, b, c] is really the same as another array that contains [a, b, c] and they are completely interchangeable. It doesn't matter whether you use the first array or the second, because they represent the exact same thing. That's why arrays are structs.
@@ -228,7 +310,8 @@ let sorted = mergeSort(items)
 launch(&rocket)
 ```
 
-**Free Function Exceptions**
+Free Function Exceptions   
+
 ```swift
  // feels natural as a free function (symmetry)
 let tuples = zip(a, b) 
@@ -313,6 +396,42 @@ while i < attendeeList.count {
 }
 ```
 
+#### Closure Expressions
+
+Use trailing closure syntax only if there's a single closure expression parameter at the end of the argument list. Give the closure parameters descriptive names.
+
+
+```diff
++ Preferred
+```
+
+```swift
+UIView.animate(withDuration: 1.0) {
+  self.myView.alpha = 0
+}
+
+UIView.animate(withDuration: 1.0, animations: {
+  self.myView.alpha = 0
+}, completion: { finished in
+  self.myView.removeFromSuperview()
+})
+```
+
+```diff
+- Not Preferred
+```
+```swift
+UIView.animate(withDuration: 1.0, animations: {
+  self.myView.alpha = 0
+})
+
+UIView.animate(withDuration: 1.0, animations: {
+  self.myView.alpha = 0
+}) { f in
+  self.myView.removeFromSuperview()
+}
+```
+
 #### Extending object lifetime
 
 Extend object lifetime using the `[weak self]` and `guard let strongSelf = self else { return }` idiom. `[weak self]` is preferred to `[unowned self]` where it is not immediately obvious that `self` outlives the closure. Explicitly extending lifetime is preferred to optional unwrapping.
@@ -372,6 +491,28 @@ var names = [String]()
 var lookup = [String: Int]()
 ```
 
+## How not to crash
+
+<details>
+<summary>SwiftLint</summary>
+
+ - discouraged_direct_init
+ - implicitly_unwrapped_optional
+ - force_unwrapping
+ - force_cast
+
+</details>
+
+## How to be fast
+
+<details>
+<summary>SwiftLint</summary>
+
+ - empty_count
+ - empty_string
+ - first_where
+
+</details>
 
 ## Copyright Statement
 
@@ -416,3 +557,4 @@ file:
 * [Using Swift with Cocoa and Objective-C](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/BuildingCocoaApps/index.html)
 * [Swift Standard Library Reference](https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/SwiftStandardLibraryReference/index.html)
 * [The Official raywenderlich.com Swift Style Guide](https://github.com/raywenderlich/swift-style-guide)
+* [SwiftLint rules list](https://github.com/realm/SwiftLint/blob/master/Rules.md)
