@@ -1,3 +1,4 @@
+
 # Swift Style Guide for Smarp mobile projects.
 
 
@@ -21,8 +22,10 @@ Use the Swift naming conventions described in the [API Design Guidelines](https:
 <details>
 <summary>SwiftLint</summary>
 
+```code
  - type_name
  - identifier_name
+ ```
 
 </details>
 
@@ -82,6 +85,7 @@ class MyViewController: UIViewController, UITableViewDataSource, UIScrollViewDel
 <details>
 <summary>SwiftLint</summary>
 
+```code
  - control_statement
  - cyclomatic_complexity
  - empty_enum_arguments
@@ -109,6 +113,7 @@ class MyViewController: UIViewController, UITableViewDataSource, UIScrollViewDel
  - unused_enumerated
  - implicit_return
  - large_tuple
+ ```
 
 </details>
 
@@ -201,6 +206,7 @@ let toView = context.view(forKey: UITransitionContextViewKey.to)
 <details>
 <summary>SwiftLint</summary>
 
+```code
  - class_delegate_protocol
  - fatal_error_message
  - let_var_whitespace
@@ -228,6 +234,7 @@ let toView = context.view(forKey: UITransitionContextViewKey.to)
  - comma
  - conditional_returns_on_newline
  - valid_ibinspectable
+ ```
 
 </details>
 
@@ -272,9 +279,11 @@ Guard statements are required to exit in some way. Generally, this should be sim
 <details>
 <summary>SwiftLint</summary>
 
+```code
  - multiple_closures_with_trailing_closure
  - trailing_closure
  - block_based_kvo
+ ```
 
 </details>
 
@@ -496,10 +505,12 @@ var lookup = [String: Int]()
 <details>
 <summary>SwiftLint</summary>
 
+```code
  - discouraged_direct_init
  - implicitly_unwrapped_optional
  - force_unwrapping
  - force_cast
+ ```
 
 </details>
 
@@ -508,9 +519,11 @@ var lookup = [String: Int]()
 <details>
 <summary>SwiftLint</summary>
 
+```code
  - empty_count
  - empty_string
  - first_where
+ ```
 
 </details>
 
