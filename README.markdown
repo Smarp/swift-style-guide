@@ -49,6 +49,9 @@ Use the Swift naming conventions described in the [API Design Guidelines](https:
 |   |   |   |-- Screen1TableViewCell.swift
 |   |   |   `-- Screen1OtherSpecificThing.swift
 `-- utils
+    |-- extensions
+    |-- |-- ClassName1+UtilMethods.swift
+    |-- |-- ClassName2+Helps.swift
     |-- commonThing1
     |   |-- Art.swift
     |   |-- Magic.swift
