@@ -29,6 +29,53 @@ Use the Swift naming conventions described in the [API Design Guidelines](https:
 
 </details>
 
+
+## Naming UI elements (IBOutlet)
+
+Use the whole name of the element without the UI prefix. After that it can be followed by a description
+```diff
++ Preferred
+```
+```swift
+@IBOutlet weak var labelEmailHint: UILabel!
+@IBOutlet weak var navigationBar: UINavigationBar!
+@IBOutlet weak var postAuthorViewCreator: PostAuthorView!
+
+```
+
+```diff
+- Not Preferred
+```
+```swift
+@IBOutlet weak var lblEmailHint: UILabel!
+@IBOutlet weak var emailHintTextField: UILabel!
+@IBOutlet weak var emailHint: UILabel!
+
+```
+
+## Naming views that extend UI elements
+
+Use a descriptive name followed by the ui view without the UI prefix
+
+```diff
++ Preferred
+```
+```swift
+class PostAuthorView: UIView {
+
+```
+
+```diff
+- Not Preferred
+```
+```swift
+class ViewPostAuthor: UIView {
+class PostAuthor: UIView {
+class UIViewPostAuthor: UIView {
+class PostAuthorUIView: UIView {
+
+```
+
 ## Where to put code
 
 #### Groups and file names
