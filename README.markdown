@@ -1,11 +1,17 @@
 
 # Swift Style Guide for Smarp mobile projects.
 
+## Introduction
 
-## Correctness
+Code that looks familiar is easier to understand and therefore also easier to review, debug and maintain. To ensure that code looks familiar to all developers on the project it’s important to agree on a common set of style guidelines.
+
+This document provides guidelines for low level coding practices such as how to indent code and how to name types and variables. Many of the stylistic choices are subjective and different developers may have different opinions about them. Keep in mind however, that having a consistent style is more important than to satisfy each individual developers preference.
+
+## Guiding Principles
 
 Strive to make your code compile without warnings. This rule informs many style decisions.
 
+Use the Swift naming conventions described in the [Swift Style Guide Naming](https://swift.org/documentation/api-design-guidelines/#naming).
 
 ## How to name
 
@@ -30,7 +36,7 @@ Use the Swift naming conventions described in the [API Design Guidelines](https:
 </details>
 
 
-## Naming UI elements (IBOutlet)
+#### Naming UI elements (IBOutlet)
 
 Use the whole name of the element without the UI prefix. After that it can be followed by a description
 ```diff
@@ -53,7 +59,7 @@ Use the whole name of the element without the UI prefix. After that it can be fo
 
 ```
 
-## Naming views that extend UI elements
+#### Naming views that extend UI elements
 
 Use a descriptive name followed by the ui view without the UI prefix
 
@@ -75,6 +81,35 @@ class UIViewPostAuthor: UIView {
 class PostAuthorUIView: UIView {
 
 ```
+
+#### Test methods
+
+Example template of test method signatures is 
+*test*`WhatYouAreTesting`*Should*`WhatIsExpected`
+
+```diff
++ Preferred: "test"+WhatYouAreTesting+OptionalCondition+"Should"+WhatIsExpected
+```
+```Swift
+testClickApproveButtonShouldChangeUIToApprove();
+testClickApproveButtonWithNoInternetShouldChangeUIToApprove();
+```
+
+
+```diff
+- Not Preferred
+```
+```Swift
+testFirstLeaderBoardMustBeCalled();
+```
+
+<details>
+<summary>checkstyle</summary>
+ 
+ - MethodName
+ 
+</details>
+
 
 ## Where to put code
 
