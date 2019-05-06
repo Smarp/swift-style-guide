@@ -13,6 +13,66 @@ Strive to make your code compile without warnings. This rule informs many style 
 
 Use the Swift naming conventions described in the [Swift Style Guide Naming](https://swift.org/documentation/api-design-guidelines/#naming).
 
+## Where to put code
+
+#### Groups and file names
+
+```code
+
+|-- data
+|   |-- repositories
+|   |   |-- LikeRepository.swift
+|   |   |-- LikeRepositoryProtocol.swift
+|   |   `-- LikeSendCallback.swift
+|   |-- local
+|   |   |-- PermanentStorage.swift
+|   |   `-- MemoryStorage.swift
+|   |-- remote
+|   |    `-- Server.swift
+|   `-- DataProviderProtocol.swift
+|-- domain
+|   |-- entities
+|   |   |-- Bookmark.swift
+|   |   `-- Like.swift
+|    `-- usecases
+|       |-- LikeUseCases.swift
+|       `-- LikeUseCasesProtocol.swift
+`-- presentation
+    |-- navigation
+    |   `-- Navigator.swift
+     `-- channelSubscription
+        |-- ChannelSubscriptionViewController.swift
+        |-- ChannelSubscriptionViewControllerProtocol.swift
+        |-- ChannelSubscriptionViewControllerPresenter.swift
+        |-- ChannelSubscriptionViewControllerPresenterProtocol.swift
+        `-- SelectedItemChangedCallback.swift´
+
+
+```
+
+#### Protocols
+
+When adding protocol conformance to a model, prefer adding a separate extension for the protocol methods. This keeps the related methods grouped together with the protocol and can simplify instructions to add a protocol to a class with its associated methods.
+
+```diff
++ Preferred
+```
+```swift
+extension MyViewController: UIScrollViewDelegate {
+  // scroll view delegate methods
+}
+```
+
+```diff
+- Not Preferred
+```
+```swift
+class MyViewController: UIViewController, UITableViewDataSource, UIScrollViewDelegate {
+  // all methods
+}
+```
+
+
 ## How to name
 
 Descriptive and consistent naming makes software easier to read and understand. 
@@ -35,6 +95,24 @@ Use the Swift naming conventions described in the [API Design Guidelines](https:
 
 </details>
 
+#### Presenter methods called by the view
+onInit()   
+onButtonClicked()   
+onTextChanged()   
+onSearchTriggered()   
+onDataChanged()   
+onQueryChanged()   
+
+#### View methods called by the presenter
+init/setUp()   
+setUIElementColor()   
+setUIElementText()   
+setUIElementClickListener()   
+navigateToNextScreen()   
+showUIElement()   
+hideUIElement()   
+enableUIElement()   
+disableUIElement()  
 
 #### Naming UI elements (IBOutlet)
 
@@ -110,65 +188,6 @@ testFirstLeaderBoardMustBeCalled();
  
 </details>
 
-
-## Where to put code
-
-#### Groups and file names
-
-```code
-
-|-- data
-|   |-- repositories
-|   |   |-- LikeRepository.swift
-|   |   |-- LikeRepositoryProtocol.swift
-|   |   `-- LikeSendCallback.swift
-|   |-- local
-|   |   |-- PermanentStorage.swift
-|   |   `-- MemoryStorage.swift
-|   |-- remote
-|   |    `-- Server.swift
-|   `-- DataProviderProtocol.swift
-|-- domain
-|   |-- entities
-|   |   |-- Bookmark.swift
-|   |   `-- Like.swift
-|    `-- usecases
-|       |-- LikeUseCases.swift
-|       `-- LikeUseCasesProtocol.swift
-`-- presentation
-    |-- navigation
-    |   `-- Navigator.swift
-     `-- channelSubscription
-        |-- ChannelSubscriptionViewController.swift
-        |-- ChannelSubscriptionViewControllerProtocol.swift
-        |-- ChannelSubscriptionViewControllerPresenter.swift
-        |-- ChannelSubscriptionViewControllerPresenterProtocol.swift
-        `-- SelectedItemChangedCallback.swift´
-
-
-```
-
-#### Protocols
-
-When adding protocol conformance to a model, prefer adding a separate extension for the protocol methods. This keeps the related methods grouped together with the protocol and can simplify instructions to add a protocol to a class with its associated methods.
-
-```diff
-+ Preferred
-```
-```swift
-extension MyViewController: UIScrollViewDelegate {
-  // scroll view delegate methods
-}
-```
-
-```diff
-- Not Preferred
-```
-```swift
-class MyViewController: UIViewController, UITableViewDataSource, UIScrollViewDelegate {
-  // all methods
-}
-```
 
 ## What is not needed
 <details>
