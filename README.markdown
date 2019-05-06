@@ -117,30 +117,34 @@ testFirstLeaderBoardMustBeCalled();
 
 ```code
 
-|-- models
-|   |-- model1
-|   |   |-- Post.swift
-|   |   |-- Tag.swift
-|   |   |-- Socnet.swift
-|   |    `-- noarm.swift´
-|-- pages
-|   |-- page1
-|   |   |-- Screen1
-|   |   |   |-- Screen1ViewController.swift
-|   |   |   |-- Screen1Controller.swift
-|   |   |   |-- Screen1TableViewCell.swift
-|   |   |   `-- Screen1OtherSpecificThing.swift
-`-- utils
-    |-- extensions
-    |-- |-- ClassName1+UtilMethods.swift
-    |-- |-- ClassName2+Helps.swift
-    |-- commonThing1
-    |   |-- Art.swift
-    |   |-- Magic.swift
-    |   `-- Good.swift
-    `-- commonThing2
-        |-- Power.swift
-        `-- Fast.swift
+|-- data
+|   |-- repositories
+|   |   |-- LikeRepository.swift
+|   |   |-- LikeRepositoryProtocol.swift
+|   |   `-- LikeSendCallback.swift
+|   |-- local
+|   |   |-- PermanentStorage.swift
+|   |   `-- MemoryStorage.swift
+|   |-- remote
+|   |    `-- Server.swift
+|   `-- DataProviderProtocol.swift
+|-- domain
+|   |-- entities
+|   |   |-- Bookmark.swift
+|   |   `-- Like.swift
+|    `-- usecases
+|       |-- LikeUseCases.swift
+|       `-- LikeUseCasesProtocol.swift
+`-- presentation
+    |-- navigation
+    |   `-- Navigator.swift
+     `-- channelSubscription
+        |-- ChannelSubscriptionViewController.swift
+        |-- ChannelSubscriptionViewControllerProtocol.swift
+        |-- ChannelSubscriptionViewControllerPresenter.swift
+        |-- ChannelSubscriptionViewControllerPresenterProtocol.swift
+        `-- SelectedItemChangedCallback.swift´
+
 
 ```
 
