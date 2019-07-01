@@ -22,8 +22,7 @@ Use the Swift naming conventions described in the [Swift Style Guide Naming](htt
 |-- data
 |   |-- repositories
 |   |   |-- LikeRepository.swift
-|   |   |-- LikeRepositoryProtocol.swift
-|   |   `-- LikeSendCallback.swift
+|   |   `-- LikeRepositoryProtocol.swift
 |   |-- local
 |   |   |-- PermanentStorage.swift
 |   |   `-- MemoryStorage.swift
@@ -35,6 +34,7 @@ Use the Swift naming conventions described in the [Swift Style Guide Naming](htt
 |   |   |-- Bookmark.swift
 |   |   `-- Like.swift
 |    `-- usecases
+|       |-- LikeSendCallback.swift
 |       |-- LikeUseCases.swift
 |       `-- LikeUseCasesProtocol.swift
 `-- presentation
